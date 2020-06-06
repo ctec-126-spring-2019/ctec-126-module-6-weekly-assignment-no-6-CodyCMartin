@@ -8,20 +8,19 @@
 
 class PlayingCard {
     constructor(element, face, suit) {
-        /*
-        Create properties for:
-        - element
-        - suit
-        - face
-        - img (set this to `img/${face}_of_${suit}.png`)
-        - state (set this to 0)
-        */
 
-        // your code goes here (remove this comment once you have added your code)
+        this.element = element
+        this.suit = suit
+        this.face = face
+        this.img = `img/${face}_of_${suit}.png`
+        this.state = 0
+
+
+
 
         this.element.addEventListener('click', () => {
             /*
-            - The event listener should be for a click event
+            this.element.src
             - The event listener should have logic to switch out the this.element.src
             - It should also change the state if the card is flipped (this.state 0 or 1)
             - To show the back of the card use 'img/back.png'
@@ -47,12 +46,17 @@ function createCardImage() {
     - return the img
     */
 
-    // your code goes here (remove this comment once you have added your code)
+
+    const img = document.createElement('img')
+    img.src = 'img/back.png'
+    return img
 }
 
 function displayDeck() {
+
+
     /*
-    - Create a loop that iterates through each card in the deck array
+    
     - in the loop, append the card.element to the container
     - Use a forEach with an arrow function
     */
@@ -83,6 +87,12 @@ function buildDeck() {
 
     suits.forEach(suit => {
         faces.forEach(face => {
+            const image = createCardImage()
+            image.id = `${face}_of_${suit}.png`
+
+
+
+
             /*
             - Call the createdCardImage() function and assign the return img element to a variable named image
             - Set the id attribute of the image to `${face}_of_${suit}.png`
